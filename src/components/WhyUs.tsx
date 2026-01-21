@@ -1,11 +1,11 @@
 import { CheckCircle2 } from "lucide-react";
 
 const benefits = [
-  "Industry-certified security professionals (CISSP, CISM, CISA)",
-  "Tailored solutions for your specific industry and size",
-  "Proven track record with Fortune 500 and startups alike",
+  "Industry-certified security professionals (CISSP, CISM, CISA, ISO 27001 LA)",
+  "Tailored solutions aligned with regional and international regulations",
+  "Proven track record with enterprises across MENA, Europe, and Asia",
   "Transparent pricing with no hidden fees",
-  "Ongoing support and continuous monitoring options",
+  "Ongoing support with coverage across multiple time zones",
   "Rapid response times and dedicated account managers",
 ];
 
@@ -46,8 +46,8 @@ const WhyUs = () => {
                   <div className="mt-1 text-sm text-muted-foreground">Projects Delivered</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-display text-4xl font-bold text-primary">98%</div>
-                  <div className="mt-1 text-sm text-muted-foreground">Client Retention</div>
+                  <div className="font-display text-4xl font-bold text-primary">40+</div>
+                  <div className="mt-1 text-sm text-muted-foreground">Countries Served</div>
                 </div>
                 <div className="text-center">
                   <div className="font-display text-4xl font-bold text-primary">15+</div>

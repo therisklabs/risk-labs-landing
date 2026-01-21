@@ -22,19 +22,19 @@ const Contact = () => {
                   <div className="rounded-lg bg-primary/10 p-2">
                     <Mail className="h-5 w-5 text-primary" />
                   </div>
-                  <span className="text-muted-foreground">contact@therisklabs.com</span>
+                  <span className="text-muted-foreground">info@therisklabs.com</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <Phone className="h-5 w-5 text-primary" />
                   </div>
-                  <span className="text-muted-foreground">+1 (555) 123-4567</span>
+                  <span className="text-muted-foreground">+971 4 123 4567</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <MapPin className="h-5 w-5 text-primary" />
                   </div>
-                  <span className="text-muted-foreground">San Francisco, CA</span>
+                  <span className="text-muted-foreground">Dubai, United Arab Emirates</span>
                 </div>
               </div>
             </div>
