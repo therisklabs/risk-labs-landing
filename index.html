@@ -1,25 +1,879 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Risk Labs | Information Security & Data Privacy Consulting | UAE</title>
-    <meta name="description" content="Global Information Security, Data Privacy, and Assurance consulting services from the UAE. The Risk Labs delivers enterprise-grade security solutions worldwide." />
-    <meta name="author" content="The Risk Labs" />
-    <meta name="keywords" content="information security, data privacy, cybersecurity consulting, UAE, Dubai, assurance services, risk management, compliance" />
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Risk Labs | AI & Data Security</title>
+    <meta name="description" content="The Risk Labs is an AI company providing AI & Data Security Products & Services. We help businesses transform securely with AI capabilities.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        black: '#050505',
+                        zinc: {
+                            900: '#121212',
+                            800: '#1e1e1e',
+                            700: '#2d2d2d',
+                        }
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm39 39V1H1v38h38z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #050505;
+            color: #e5e5e5;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-    <meta property="og:title" content="The Risk Labs | Global Security & Privacy Consulting from UAE" />
-    <meta property="og:description" content="Expert Information Security, Data Privacy, and Assurance services. Operating globally from the United Arab Emirates." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        .premium-card {
+            background: linear-gradient(145deg, #121212 0%, #0a0a0a 100%);
+            border: 1px solid #1e1e1e;
+            transition: all 0.3s ease;
+        }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@TheRiskLabs" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        .premium-card:hover {
+            border-color: #3f3f46;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px -10px rgba(255,255,255,0.05);
+        }
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        .fade-in {
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-link.active {
+            color: #fff;
+            position: relative;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+        }
+
+        /* Abstract glowing orb */
+        .glow-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col font-sans overflow-x-hidden">
+
+    <!-- Global Configuration & Data (Simulating a repository config) -->
+    <script>
+        const SITE_CONFIG = {
+            companyName: "The Risk Labs",
+            email: "hello@therisklabs.com",
+            location: "India",
+            socials: {
+                linkedin: "https://linkedin.com/company/therisklabs",
+                x: "https://twitter.com/therisklabs",
+                github: "https://github.com/therisklabs"
+            }
+        };
+
+        const BLOG_POSTS = [
+            {
+                id: 'agentic-ai-security',
+                title: 'Securing Agentic AI: The Next Frontier in Enterprise Risk',
+                summary: 'As autonomous AI agents move from experimental to enterprise-grade, standard security paradigms fall short. Explore our framework for Agentic AI validation.',
+                date: 'October 24, 2025',
+                author: 'Research Team',
+                tags: ['AI Security', 'Agentic AI', 'Research'],
+                readTime: '6 min read'
+            },
+            {
+                id: 'rag-compliance-guide',
+                title: 'Navigating Data Privacy in RAG Architectures',
+                summary: 'Retrieval-Augmented Generation introduces complex data flow challenges. Learn how to architect RAG systems that comply with global data privacy regulations.',
+                date: 'September 12, 2025',
+                author: 'Governance Advisory',
+                tags: ['Data Privacy', 'RAG', 'Compliance'],
+                readTime: '8 min read'
+            },
+            {
+                id: 'llm-vapt-methodology',
+                title: 'Standardizing LLM Application Security Testing',
+                summary: 'Traditional VAPT misses prompt injection and logic manipulation. Discover The Risk Labs methodology for comprehensive LLM vulnerability assessment.',
+                date: 'August 05, 2025',
+                author: 'Security Testing Lab',
+                tags: ['LLM', 'VAPT', 'Security'],
+                readTime: '5 min read'
+            }
+        ];
+    </script>
+
+    <!-- Header Navigation -->
+    <header class="fixed w-full top-0 z-50 glass-panel border-b-0 border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="navigate('home')">
+                    <i class="ph-fill ph-shield-check text-2xl text-white mr-3 group-hover:opacity-80 transition-opacity"></i>
+                    <span class="font-display font-bold text-xl tracking-tight text-white group-hover:opacity-80 transition-opacity">The Risk Labs</span>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8">
+                    <button onclick="navigate('what-we-do')" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">What We Do</button>
+                    <button onclick="navigate('who-we-are')" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Who We Are</button>
+                    <button onclick="navigate('services')" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Services</button>
+                    <button onclick="navigate('products')" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Products</button>
+                    <button onclick="navigate('about')" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">About Us</button>
+                    <button onclick="navigate('blog')" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Blog</button>
+                </nav>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="navigate('contact')" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 border border-zinc-700 text-sm font-medium rounded text-white bg-zinc-900 hover:bg-white hover:text-black transition-all">
+                        Book a Consultation
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-white focus:outline-none">
+                        <i class="ph ph-list text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-t border-zinc-800 absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="navigate('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-white">Home</button>
+                <button onclick="navigate('what-we-do'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:text-white">What We Do</button>
+                <button onclick="navigate('who-we-are'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Who We Are</button>
+                <button onclick="navigate('services'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Services</button>
+                <button onclick="navigate('products'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Products</button>
+                <button onclick="navigate('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:text-white">About Us</button>
+                <button onclick="navigate('blog'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Blog</button>
+                <button onclick="navigate('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-white border-t border-zinc-800 mt-2 pt-2">Book a Consultation</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="app-content" class="flex-grow pt-20 relative z-10">
+        <!-- Content gets injected here -->
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-black border-t border-zinc-800 pt-16 pb-8 z-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center group cursor-pointer mb-4" onclick="navigate('home')">
+                        <i class="ph-fill ph-shield-check text-2xl text-white mr-2"></i>
+                        <span class="font-display font-bold text-lg text-white">The Risk Labs</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-6 pr-4">
+                        An AI company providing enterprise-grade AI & Data Security Products & Services. Transforming businesses securely with embedded trust.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="ph-fill ph-linkedin-logo text-xl"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="ph-fill ph-x-logo text-xl"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="ph-fill ph-github-logo text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-4 text-sm tracking-wide uppercase">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><button onclick="navigate('home')" class="text-gray-400 hover:text-white transition-colors">Home</button></li>
+                        <li><button onclick="navigate('what-we-do')" class="text-gray-400 hover:text-white transition-colors">What We Do</button></li>
+                        <li><button onclick="navigate('services')" class="text-gray-400 hover:text-white transition-colors">Services</button></li>
+                        <li><button onclick="navigate('products')" class="text-gray-400 hover:text-white transition-colors">Products</button></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-medium mb-4 text-sm tracking-wide uppercase">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><button onclick="navigate('who-we-are')" class="text-gray-400 hover:text-white transition-colors">Who We Are</button></li>
+                        <li><button onclick="navigate('about')" class="text-gray-400 hover:text-white transition-colors">About Us</button></li>
+                        <li><button onclick="navigate('blog')" class="text-gray-400 hover:text-white transition-colors">Blog & Insights</button></li>
+                        <li><button onclick="navigate('contact')" class="text-gray-400 hover:text-white transition-colors">Contact</button></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-medium mb-4 text-sm tracking-wide uppercase">Legal & Contact</h4>
+                    <ul class="space-y-2 text-sm mb-6">
+                        <li><button onclick="navigate('privacy')" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</button></li>
+                        <li><button onclick="navigate('terms')" class="text-gray-400 hover:text-white transition-colors">Terms & Conditions</button></li>
+                    </ul>
+                    <a href="mailto:hello@therisklabs.com" class="text-sm text-gray-400 hover:text-white flex items-center transition-colors">
+                        <i class="ph ph-envelope-simple mr-2"></i> hello@therisklabs.com
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+                <p>&copy; <span id="current-year"></span> The Risk Labs. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Headquartered in India | Serving Enterprises Globally</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Logic & Templates -->
+    <script>
+        // Set Current Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+        mobileBtn.addEventListener('click', toggleMobileMenu);
+
+        // --- View Templates ---
+        const VIEWS = {
+            'home': () => `
+                <div class="relative bg-black min-h-[90vh] flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+                    <div class="glow-orb top-[-20%] right-[-10%]"></div>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-24 text-center fade-in">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full border border-zinc-700 bg-zinc-900/50 text-xs font-medium text-gray-300 mb-8 tracking-wide">
+                            <span class="w-2 h-2 rounded-full bg-white mr-2 animate-pulse"></span> Enterprise AI & Data Security
+                        </div>
+                        <h1 class="text-5xl md:text-7xl font-display font-bold text-white tracking-tight mb-6 max-w-5xl mx-auto leading-tight">
+                            We help businesses transform securely with <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">AI capabilities.</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                            Embed trust into your core strategy. We deliver enterprise-grade governance, testing, and compliance for the autonomous future.
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                            <button onclick="navigate('services')" class="px-8 py-4 bg-white text-black font-semibold text-sm rounded hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.15)]">
+                                Explore Services
+                            </button>
+                            <button onclick="navigate('contact')" class="px-8 py-4 border border-zinc-700 bg-zinc-900/50 text-white font-semibold text-sm rounded hover:bg-zinc-800 transition-colors">
+                                Contact Us
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="py-24 bg-zinc-950 border-t border-zinc-900">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in" style="animation-delay: 0.2s;">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="premium-card p-8 rounded-lg">
+                                <i class="ph ph-shield-check text-4xl text-gray-300 mb-6"></i>
+                                <h3 class="text-xl font-display font-semibold text-white mb-3">AI Security Testing</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed">Rigorous validation for Agentic AI, RAG architectures, and LLM applications against emerging threat vectors.</p>
+                            </div>
+                            <div class="premium-card p-8 rounded-lg">
+                                <i class="ph ph-graph text-4xl text-gray-300 mb-6"></i>
+                                <h3 class="text-xl font-display font-semibold text-white mb-3">Governance & Privacy</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed">Unified GRC capabilities ensuring your AI models comply with global data protection frameworks and internal policies.</p>
+                            </div>
+                            <div class="premium-card p-8 rounded-lg">
+                                <i class="ph ph-cpu text-4xl text-gray-300 mb-6"></i>
+                                <h3 class="text-xl font-display font-semibold text-white mb-3">Enterprise Platforms</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed">Deploy our proprietary OneRMF™, OAI™, and Stargate™ products for continuous observability and compliance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            'what-we-do': () => `
+                <div class="pt-24 pb-16 border-b border-zinc-800 bg-black">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <h1 class="text-4xl md:text-5xl font-display font-bold text-white tracking-tight mb-6">What We Do</h1>
+                        <p class="text-xl text-gray-400 max-w-3xl font-light">Enabling secure transformation through specialized products and assurance services.</p>
+                    </div>
+                </div>
+                <div class="py-20 bg-zinc-950">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                            <div class="fade-in">
+                                <h2 class="text-2xl font-display font-semibold text-white mb-6 border-b border-zinc-800 pb-4">AI & Data Security Products</h2>
+                                <p class="text-gray-400 mb-6 leading-relaxed">We build enterprise-grade software to automate trust and compliance. Our platforms provide deep observability into AI behavior, automated compliance mapping, and continuous vulnerability assessment.</p>
+                                <button onclick="navigate('products')" class="text-white font-medium text-sm border-b border-white pb-1 hover:text-gray-300 hover:border-gray-300 transition-all">View Products <i class="ph ph-arrow-right inline-block ml-1"></i></button>
+                            </div>
+                            <div class="fade-in" style="animation-delay: 0.1s;">
+                                <h2 class="text-2xl font-display font-semibold text-white mb-6 border-b border-zinc-800 pb-4">Digital Trust Assurance Services</h2>
+                                <p class="text-gray-400 mb-6 leading-relaxed">Bridging the gap between information security and data privacy. We provide comprehensive consulting, auditing, and implementation services to establish absolute trust in your digital ecosystem.</p>
+                                <button onclick="navigate('services')" class="text-white font-medium text-sm border-b border-white pb-1 hover:text-gray-300 hover:border-gray-300 transition-all">View Services <i class="ph ph-arrow-right inline-block ml-1"></i></button>
+                            </div>
+                            <div class="fade-in" style="animation-delay: 0.2s;">
+                                <h2 class="text-2xl font-display font-semibold text-white mb-6 border-b border-zinc-800 pb-4">Secure Transformation Enablement</h2>
+                                <p class="text-gray-400 mb-6 leading-relaxed">Adopting AI introduces new operational paradigms. We guide enterprises through safe AI adoption, minimizing risk while maximizing technological capability and innovation velocity.</p>
+                            </div>
+                            <div class="fade-in" style="animation-delay: 0.3s;">
+                                <h2 class="text-2xl font-display font-semibold text-white mb-6 border-b border-zinc-800 pb-4">Enterprise Governance & Testing</h2>
+                                <p class="text-gray-400 mb-6 leading-relaxed">From board-level policy design to technical penetration testing, we deliver full-stack observability and control capabilities necessary for modern regulatory landscapes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            'who-we-are': () => `
+                <div class="pt-24 pb-16 border-b border-zinc-800 bg-black">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <h1 class="text-4xl md:text-5xl font-display font-bold text-white tracking-tight mb-6">Who We Are</h1>
+                        <p class="text-xl text-gray-400 max-w-3xl font-light">Built for enterprise trust, resilience, and responsible AI adoption.</p>
+                    </div>
+                </div>
+                <div class="py-20 bg-zinc-950">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center fade-in">
+                            <div>
+                                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-3">Our Identity</h3>
+                                <h2 class="text-3xl font-display font-bold text-white mb-6">A Specialist AI & Data Security Firm</h2>
+                                <p class="text-gray-400 leading-relaxed mb-4">
+                                    The Risk Labs is not a generalist IT agency. We are a highly specialized group combining deep security expertise, profound AI understanding, and practical assurance delivery mechanisms.
+                                </p>
+                                <p class="text-gray-400 leading-relaxed">
+                                    We operate at the intersection of innovation and protection, ensuring that as your technological capabilities expand, your risk exposure is systematically controlled.
+                                </p>
+                            </div>
+                            <div class="premium-card p-12 flex items-center justify-center min-h-[300px]">
+                                <i class="ph ph-fingerprint text-8xl text-zinc-700"></i>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in" style="animation-delay: 0.2s;">
+                            <div class="border-l border-zinc-800 pl-6">
+                                <h4 class="text-white font-display font-semibold text-lg mb-3">Our Mission</h4>
+                                <p class="text-sm text-gray-400 leading-relaxed">To embed uncompromised security and verifiable trust into every enterprise AI initiative, ensuring safe technological advancement globally.</p>
+                            </div>
+                            <div class="border-l border-zinc-800 pl-6">
+                                <h4 class="text-white font-display font-semibold text-lg mb-3">Our Vision</h4>
+                                <p class="text-sm text-gray-400 leading-relaxed">A future where enterprises harness the full power of autonomous intelligence without fear of data compromise or model manipulation.</p>
+                            </div>
+                            <div class="border-l border-zinc-800 pl-6">
+                                <h4 class="text-white font-display font-semibold text-lg mb-3">Core Philosophy</h4>
+                                <p class="text-sm text-gray-400 leading-relaxed">Trust-first innovation. We believe that robust security is not a barrier to deployment, but the primary enabler of speed and scale.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            'services': () => `
+                <div class="pt-24 pb-16 border-b border-zinc-800 bg-black">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <h1 class="text-4xl md:text-5xl font-display font-bold text-white tracking-tight mb-6">Services</h1>
+                        <p class="text-xl text-gray-400 max-w-3xl font-light">Comprehensive trust engineering and governance capabilities.</p>
+                    </div>
+                </div>
+                
+                <div class="py-20 bg-zinc-950 space-y-24">
+                    <!-- AI Security Testing -->
+                    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <div class="flex flex-col md:flex-row gap-12">
+                            <div class="md:w-1/3">
+                                <h2 class="text-3xl font-display font-bold text-white mb-4">AI Security Testing Services</h2>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-6">Specialized adversarial testing designed specifically for modern artificial intelligence architectures and machine learning workflows.</p>
+                            </div>
+                            <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="premium-card p-6 rounded">
+                                    <h4 class="text-white font-medium mb-2">Agentic AI Security Testing</h4>
+                                    <p class="text-xs text-gray-500">Validating the logic and boundaries of autonomous agents to prevent unintended execution and systemic cascading failures.</p>
+                                </div>
+                                <div class="premium-card p-6 rounded">
+                                    <h4 class="text-white font-medium mb-2">RAG Security Testing</h4>
+                                    <p class="text-xs text-gray-500">Ensuring Retrieval-Augmented Generation pipelines do not leak sensitive vector data or suffer from poisoning attacks.</p>
+                                </div>
+                                <div class="premium-card p-6 rounded">
+                                    <h4 class="text-white font-medium mb-2">LLM App Security Testing</h4>
+                                    <p class="text-xs text-gray-500">Defending against prompt injection, jailbreaking, and unauthorized data exfiltration in enterprise LLM wrappers.</p>
+                                </div>
+                                <div class="premium-card p-6 rounded">
+                                    <h4 class="text-white font-medium mb-2">Model & Workflow Reviews</h4>
+                                    <p class="text-xs text-gray-500">Comprehensive code and architecture reviews mapping the end-to-end AI lifecycle security posture.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- GRC Services -->
+                    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <div class="border-t border-zinc-900 pt-20">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                                <div>
+                                    <h3 class="text-2xl font-display font-bold text-white mb-6">Information Security GRC</h3>
+                                    <ul class="space-y-4">
+                                        <li class="flex items-start"><i class="ph-fill ph-check-circle text-gray-400 mt-1 mr-3"></i><span class="text-gray-400 text-sm">ISO 27001 & SOC 2 Readiness</span></li>
+                                        <li class="flex items-start"><i class="ph-fill ph-check-circle text-gray-400 mt-1 mr-3"></i><span class="text-gray-400 text-sm">Enterprise Risk Assessments</span></li>
+                                        <li class="flex items-start"><i class="ph-fill ph-check-circle text-gray-400 mt-1 mr-3"></i><span class="text-gray-400 text-sm">Vendor Security Management</span></li>
+                                        <li class="flex items-start"><i class="ph-fill ph-check-circle text-gray-400 mt-1 mr-3"></i><span class="text-gray-400 text-sm">Policy & Procedure Design</span></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-display font-bold text-white mb-6">Data Privacy GRC</h3>
+                                    <ul class="space-y-4">
+                                        <li class="flex items-start"><i class="ph-fill ph-check-circle text-gray-400 mt-1 mr-3"></i><span class="text-gray-400 text-sm">GDPR & DPDP Act Compliance</span></li>
+                                        <li class="flex items-start"><i class="ph-fill ph-check-circle text-gray-400 mt-1 mr-3"></i><span class="text-gray-400 text-sm">Data Protection Impact Assessments (DPIA)</span></li>
+                                        <li class="flex items-start"><i class="ph-fill ph-check-circle text-gray-400 mt-1 mr-3"></i><span class="text-gray-400 text-sm">Cross-border Data Flow Audits</span></li>
+                                        <li class="flex items-start"><i class="ph-fill ph-check-circle text-gray-400 mt-1 mr-3"></i><span class="text-gray-400 text-sm">Privacy by Design Architecture</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Trust Assurance -->
+                    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <div class="border-t border-zinc-900 pt-20">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                                <div>
+                                    <h3 class="text-2xl font-display font-bold text-white mb-6">AI GRC Services</h3>
+                                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Establish AI governance councils, validate controls, and align with frameworks like NIST AI RMF and ISO 42001 to ensure your models are fair, transparent, and secure.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-display font-bold text-white mb-6">Standard Security Testing</h3>
+                                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Traditional Penetration Testing, Red Teaming, and Application Security reviews designed to secure the infrastructure surrounding your data and AI models.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            `,
+            'products': () => `
+                <div class="pt-24 pb-16 border-b border-zinc-800 bg-black">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <h1 class="text-4xl md:text-5xl font-display font-bold text-white tracking-tight mb-6">Products</h1>
+                        <p class="text-xl text-gray-400 max-w-3xl font-light">Proprietary platforms engineered for absolute digital trust.</p>
+                    </div>
+                </div>
+                
+                <div class="py-20 bg-zinc-950">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                        
+                        <!-- OneRMF -->
+                        <div class="premium-card p-10 md:p-12 rounded-lg flex flex-col md:flex-row gap-10 fade-in">
+                            <div class="md:w-1/3">
+                                <h2 class="text-4xl font-display font-bold text-white mb-2">OneRMF&trade;</h2>
+                                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-6">Unified Compliance Management</p>
+                                <button onclick="navigate('contact')" class="px-6 py-3 bg-white text-black text-sm font-medium rounded hover:bg-gray-200 transition-colors w-full md:w-auto text-center">Request Demo</button>
+                            </div>
+                            <div class="md:w-2/3 border-t md:border-t-0 md:border-l border-zinc-800 pt-6 md:pt-0 md:pl-10">
+                                <p class="text-gray-300 mb-6 leading-relaxed">An enterprise-grade tool that centralizes risk management frameworks. Map controls once, comply with many. Designed for highly regulated industries requiring strict audit trails.</p>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center"><i class="ph ph-check text-white mr-3"></i><span class="text-sm text-gray-400">Automated Control Mapping across global standards</span></li>
+                                    <li class="flex items-center"><i class="ph ph-check text-white mr-3"></i><span class="text-sm text-gray-400">Real-time Risk Posture Dashboards</span></li>
+                                    <li class="flex items-center"><i class="ph ph-check text-white mr-3"></i><span class="text-sm text-gray-400">Integrated evidence collection and audit reporting</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- OAI -->
+                        <div class="premium-card p-10 md:p-12 rounded-lg flex flex-col md:flex-row gap-10 fade-in" style="animation-delay: 0.1s;">
+                            <div class="md:w-1/3">
+                                <h2 class="text-4xl font-display font-bold text-white mb-2">OAI&trade;</h2>
+                                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-6">AI Observability Platform</p>
+                                <button onclick="navigate('contact')" class="px-6 py-3 border border-zinc-700 text-white text-sm font-medium rounded hover:bg-zinc-800 transition-colors w-full md:w-auto text-center">View Product</button>
+                            </div>
+                            <div class="md:w-2/3 border-t md:border-t-0 md:border-l border-zinc-800 pt-6 md:pt-0 md:pl-10">
+                                <p class="text-gray-300 mb-6 leading-relaxed">Enterprise-grade observability designed explicitly for generative models and autonomous agents. Monitor input/output streams for anomalies, bias, and malicious intent.</p>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center"><i class="ph ph-check text-white mr-3"></i><span class="text-sm text-gray-400">Continuous Prompt Injection Detection</span></li>
+                                    <li class="flex items-center"><i class="ph ph-check text-white mr-3"></i><span class="text-sm text-gray-400">Model Drift and Hallucination Monitoring</span></li>
+                                    <li class="flex items-center"><i class="ph ph-check text-white mr-3"></i><span class="text-sm text-gray-400">Data Lineage and Privacy Tracing</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Stargate -->
+                        <div class="premium-card p-10 md:p-12 rounded-lg flex flex-col md:flex-row gap-10 fade-in" style="animation-delay: 0.2s;">
+                            <div class="md:w-1/3">
+                                <h2 class="text-4xl font-display font-bold text-white mb-2">Stargate&trade;</h2>
+                                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-6">Automated VAPT & AppSec</p>
+                                <button onclick="navigate('contact')" class="px-6 py-3 border border-zinc-700 text-white text-sm font-medium rounded hover:bg-zinc-800 transition-colors w-full md:w-auto text-center">View Product</button>
+                            </div>
+                            <div class="md:w-2/3 border-t md:border-t-0 md:border-l border-zinc-800 pt-6 md:pt-0 md:pl-10">
+                                <p class="text-gray-300 mb-6 leading-relaxed">A complete dynamic scanning and vulnerability assessment platform. Seamlessly integrates into CI/CD pipelines to validate zero-trust architectures automatically.</p>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center"><i class="ph ph-check text-white mr-3"></i><span class="text-sm text-gray-400">DevSecOps Pipeline Integration</span></li>
+                                    <li class="flex items-center"><i class="ph ph-check text-white mr-3"></i><span class="text-sm text-gray-400">Zero-trust validation workflows</span></li>
+                                    <li class="flex items-center"><i class="ph ph-check text-white mr-3"></i><span class="text-sm text-gray-400">Actionable remediation guidance</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `,
+            'about': () => `
+                <div class="pt-24 pb-16 border-b border-zinc-800 bg-black">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <h1 class="text-4xl md:text-5xl font-display font-bold text-white tracking-tight mb-6">About Us</h1>
+                        <p class="text-xl text-gray-400 max-w-3xl font-light">Technical depth meeting governance insight.</p>
+                    </div>
+                </div>
+                
+                <div class="py-20 bg-zinc-950">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="max-w-4xl fade-in">
+                            <h2 class="text-2xl font-display font-bold text-white mb-6">Founded by Security Experts in AI & Data</h2>
+                            <p class="text-gray-400 mb-6 leading-relaxed">
+                                The Risk Labs was established by industry veterans who recognized a critical gap in the market: the rapid advancement of Artificial Intelligence was vastly outpacing the security and governance frameworks required to contain its risks.
+                            </p>
+                            <p class="text-gray-400 mb-12 leading-relaxed">
+                                We brought together top-tier security researchers, data privacy lawyers, and AI engineers to build a firm uniquely positioned to solve the trust deficit in modern enterprise transformation.
+                            </p>
+
+                            <h2 class="text-2xl font-display font-bold text-white mb-6">Our Edge</h2>
+                            <div class="space-y-6">
+                                <div class="pl-6 border-l-2 border-white">
+                                    <h4 class="text-white font-semibold mb-2">Enterprise Credibility</h4>
+                                    <p class="text-sm text-gray-500">We understand the stakes. Our methodologies are designed to withstand scrutiny from auditors, regulators, and boards of directors.</p>
+                                </div>
+                                <div class="pl-6 border-l-2 border-zinc-700">
+                                    <h4 class="text-white font-semibold mb-2">Technical Depth</h4>
+                                    <p class="text-sm text-gray-500">We do not just rely on high-level policies. We read the code, reverse-engineer the prompts, and validate the vector databases.</p>
+                                </div>
+                                <div class="pl-6 border-l-2 border-zinc-800">
+                                    <h4 class="text-white font-semibold mb-2">Trust-led Innovation</h4>
+                                    <p class="text-sm text-gray-500">A long-term vision ensuring that ethical, secure, and compliant AI remains a strategic differentiator for our clients.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            'blog': () => `
+                <div class="pt-24 pb-16 border-b border-zinc-800 bg-black">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <h1 class="text-4xl md:text-5xl font-display font-bold text-white tracking-tight mb-6">Insights & Research</h1>
+                        <p class="text-xl text-gray-400 max-w-3xl font-light">Latest intelligence on AI security, trust engineering, and data privacy.</p>
+                    </div>
+                </div>
+                
+                <div class="py-20 bg-zinc-950">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid">
+                            <!-- Blog posts injected here via JS -->
+                        </div>
+                    </div>
+                </div>
+            `,
+            'post': (params) => {
+                const post = BLOG_POSTS.find(p => p.id === params.id) || BLOG_POSTS[0];
+                return `
+                <article class="bg-black pt-32 pb-24 min-h-screen">
+                    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <button onclick="navigate('blog')" class="text-xs font-semibold text-gray-500 hover:text-white uppercase tracking-widest mb-8 inline-flex items-center transition-colors"><i class="ph ph-arrow-left mr-2"></i> Back to Insights</button>
+                        
+                        <div class="flex items-center space-x-2 text-xs text-gray-500 mb-6">
+                            <span>${post.date}</span>
+                            <span>&bull;</span>
+                            <span>${post.readTime}</span>
+                        </div>
+                        
+                        <h1 class="text-4xl md:text-5xl font-display font-bold text-white tracking-tight mb-6 leading-tight">${post.title}</h1>
+                        <p class="text-xl text-gray-400 font-light mb-10 leading-relaxed">${post.summary}</p>
+                        
+                        <div class="flex items-center justify-between border-y border-zinc-800 py-6 mb-12">
+                            <div class="flex items-center">
+                                <div class="h-10 w-10 rounded-full bg-zinc-800 flex items-center justify-center mr-4">
+                                    <i class="ph ph-user text-gray-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-white">${post.author}</p>
+                                    <p class="text-xs text-gray-500">The Risk Labs</p>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3">
+                                <button class="text-gray-500 hover:text-white" onclick="alert('Share on LinkedIn simulated')"><i class="ph-fill ph-linkedin-logo text-xl"></i></button>
+                                <button class="text-gray-500 hover:text-white" onclick="alert('Share on X simulated')"><i class="ph-fill ph-x-logo text-xl"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="prose prose-invert max-w-none prose-p:text-gray-400 prose-p:leading-relaxed prose-headings:font-display prose-headings:text-white">
+                            <p>This is a placeholder for the full article content. In a production repository, this content would be driven by markdown files in the <code>/content/blog/</code> directory or a headless CMS.</p>
+                            <h2>The Enterprise Challenge</h2>
+                            <p>As organizations rush to deploy generative AI and autonomous agents, traditional security perimeters are no longer sufficient. The logic resides within the model, and the attack vectors are semantically driven.</p>
+                            <h2>Our Methodology</h2>
+                            <p>We advocate for a zero-trust approach at the model level. This requires continuous validation, red-teaming of prompts, and rigorous output sanitization.</p>
+                            <blockquote>"Security cannot be an afterthought in AI deployment. It is the fundamental prerequisite for enterprise-scale utilization."</blockquote>
+                        </div>
+
+                        <div class="mt-16 pt-8 border-t border-zinc-800 flex gap-2">
+                            ${post.tags.map(tag => `<span class="px-3 py-1 bg-zinc-900 border border-zinc-800 text-xs text-gray-400 rounded">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </article>
+                `;
+            },
+            'contact': () => `
+                <div class="relative bg-black min-h-screen pt-24 pb-16 overflow-hidden">
+                    <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 fade-in">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                            <div>
+                                <h1 class="text-5xl font-display font-bold text-white tracking-tight mb-6">Secure your business.</h1>
+                                <p class="text-xl text-gray-400 max-w-md font-light mb-12">
+                                    Do not let risk inhibit your innovation. Partner with Risk Labs to embed trust into the core of your business strategy. Contact us today to schedule your initial Risk Discovery Session.
+                                </p>
+                                
+                                <div class="space-y-6">
+                                    <div class="flex items-center">
+                                        <div class="h-12 w-12 rounded border border-zinc-800 bg-zinc-900 flex items-center justify-center mr-4">
+                                            <i class="ph ph-envelope-simple text-xl text-gray-300"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">Email Us</p>
+                                            <p class="text-white text-lg">${SITE_CONFIG.email}</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="h-12 w-12 rounded border border-zinc-800 bg-zinc-900 flex items-center justify-center mr-4">
+                                            <i class="ph ph-map-pin text-xl text-gray-300"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">Headquarters</p>
+                                            <p class="text-white text-lg">${SITE_CONFIG.location}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="premium-card p-8 md:p-10 rounded-xl">
+                                <form onsubmit="event.preventDefault(); alert('Enterprise Inquiry Form Submitted. (Simulation)');" class="space-y-6">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">First Name</label>
+                                            <input type="text" class="w-full bg-black border border-zinc-800 rounded px-4 py-3 text-white focus:outline-none focus:border-gray-500 transition-colors" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Last Name</label>
+                                            <input type="text" class="w-full bg-black border border-zinc-800 rounded px-4 py-3 text-white focus:outline-none focus:border-gray-500 transition-colors" required>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Work Email</label>
+                                        <input type="email" class="w-full bg-black border border-zinc-800 rounded px-4 py-3 text-white focus:outline-none focus:border-gray-500 transition-colors" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Company Name</label>
+                                        <input type="text" class="w-full bg-black border border-zinc-800 rounded px-4 py-3 text-white focus:outline-none focus:border-gray-500 transition-colors">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">How can we help?</label>
+                                        <select class="w-full bg-black border border-zinc-800 rounded px-4 py-3 text-white focus:outline-none focus:border-gray-500 transition-colors appearance-none">
+                                            <option>AI Security Testing</option>
+                                            <option>Information Security GRC</option>
+                                            <option>Data Privacy Services</option>
+                                            <option>Product Demo (OneRMF/OAI/Stargate)</option>
+                                            <option>Other Inquiry</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="w-full bg-white text-black font-semibold text-sm rounded py-4 hover:bg-gray-200 transition-colors mt-4">
+                                        Submit Request
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            'privacy': () => `
+                <div class="bg-black pt-32 pb-24 min-h-screen">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <h1 class="text-4xl font-display font-bold text-white mb-4">Privacy Policy</h1>
+                        <p class="text-sm text-gray-500 mb-10">Last Updated: October 2025 | Governing Jurisdiction: India</p>
+                        
+                        <div class="prose prose-invert max-w-none text-gray-400 prose-headings:text-white prose-headings:font-display">
+                            <!-- Implementation Note -->
+                            <div class="p-4 border border-zinc-800 bg-zinc-900 rounded text-xs text-gray-500 mb-8">
+                                <strong>Developer Note:</strong> This is an AI-generated first draft. Final legal review by counsel versed in the DPDP Act (India) and GDPR is required before production use.
+                            </div>
+
+                            <h3>1. Introduction and Scope</h3>
+                            <p>The Risk Labs ("Company," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our enterprise products (OneRMF™, OAI™, Stargate™), or engage with our services.</p>
+
+                            <h3>2. Information We Collect</h3>
+                            <p>We collect information that identifies, relates to, describes, or is reasonably capable of being associated with you ("Personal Data"). This includes:</p>
+                            <ul>
+                                <li><strong>Identifiers:</strong> Name, work email, phone number, company details.</li>
+                                <li><strong>Technical Data:</strong> IP addresses, browser type, interactions with our platforms.</li>
+                                <li><strong>Service Data:</strong> Data processed on behalf of clients during security testing or GRC consulting (governed strictly by MSA and DPA agreements).</li>
+                            </ul>
+
+                            <h3>3. How We Use Information</h3>
+                            <p>We use the information collected to:</p>
+                            <ul>
+                                <li>Provide and maintain our enterprise security services.</li>
+                                <li>Communicate with you regarding consultations, security advisories, and product updates.</li>
+                                <li>Analyze website usage to improve our platform architecture.</li>
+                                <li>Comply with legal obligations under applicable Indian and international laws.</li>
+                            </ul>
+
+                            <h3>4. Cookies and Analytics</h3>
+                            <p>We use strictly necessary cookies to ensure basic website functionality and performance cookies to analyze traffic. You can control cookie preferences through your browser settings.</p>
+
+                            <h3>5. Data Sharing and Service Providers</h3>
+                            <p>We do not sell your personal data. We may share information with trusted third-party service providers (e.g., secure hosting environments) who process data on our behalf under strict confidentiality agreements. </p>
+
+                            <h3>6. Data Security</h3>
+                            <p>As a security-first firm, we implement stringent organizational, technical, and physical measures to protect your data against unauthorized access, alteration, or destruction. This includes end-to-end encryption and zero-trust access controls.</p>
+
+                            <h3>7. User Rights</h3>
+                            <p>Depending on your jurisdiction (including the DPDP Act, India), you may have the right to access, correct, or request deletion of your personal data. To exercise these rights, please contact our Data Protection Officer.</p>
+
+                            <h3>8. Contact Information</h3>
+                            <p>For any privacy-related grievances or inquiries, please contact:<br>
+                            Email: privacy@therisklabs.com<br>
+                            Address: [Insert Official Corporate Address], India</p>
+                        </div>
+                    </div>
+                </div>
+            `,
+            'terms': () => `
+                <div class="bg-black pt-32 pb-24 min-h-screen">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+                        <h1 class="text-4xl font-display font-bold text-white mb-4">Terms & Conditions</h1>
+                        <p class="text-sm text-gray-500 mb-10">Last Updated: October 2025 | Governing Jurisdiction: India</p>
+                        
+                        <div class="prose prose-invert max-w-none text-gray-400 prose-headings:text-white prose-headings:font-display">
+                            <!-- Implementation Note -->
+                            <div class="p-4 border border-zinc-800 bg-zinc-900 rounded text-xs text-gray-500 mb-8">
+                                <strong>Developer Note:</strong> This is an AI-generated first draft. Final legal review is required before production use to ensure compliance with local corporate law.
+                            </div>
+
+                            <h3>1. Acceptance of Terms</h3>
+                            <p>By accessing and using the website of The Risk Labs, you accept and agree to be bound by these Terms and Conditions. If you do not agree to these terms, you must not access our website.</p>
+
+                            <h3>2. Intellectual Property</h3>
+                            <p>All content, branding, methodologies, product names (including OneRMF™, OAI™, Stargate™), and text on this site are the intellectual property of The Risk Labs. Unauthorized reproduction, distribution, or derivative use is strictly prohibited.</p>
+
+                            <h3>3. Product and Service Information</h3>
+                            <p>Information provided on this website regarding AI security testing, GRC services, and proprietary software products is for general informational purposes. Specific engagements are governed by separate master service agreements (MSAs) and statements of work (SOWs).</p>
+
+                            <h3>4. No Unlawful Use</h3>
+                            <p>You agree to use this website only for lawful purposes. You may not attempt to probe, scan, or test the vulnerability of this website, nor breach security or authentication measures without explicit, written prior consent (even if acting as a security researcher).</p>
+
+                            <h3>5. Disclaimer of Warranties</h3>
+                            <p>This website is provided "as is" without warranties of any kind, either express or implied. The Risk Labs does not warrant that the website will be uninterrupted or error-free.</p>
+
+                            <h3>6. Limitation of Liability</h3>
+                            <p>To the fullest extent permitted by applicable law, The Risk Labs shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your access to or use of the website.</p>
+
+                            <h3>7. Governing Law and Jurisdiction</h3>
+                            <p>These terms shall be governed by and construed in accordance with the laws of India. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts located in [Insert City], India.</p>
+
+                            <h3>8. Changes to Terms</h3>
+                            <p>We reserve the right to update these terms at any time. Continued use of the website following any changes indicates your acceptance of the new terms.</p>
+                        </div>
+                    </div>
+                </div>
+            `
+        };
+
+        // --- Routing Logic ---
+        function updateNavState(route) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active', 'text-white');
+                link.classList.add('text-gray-400');
+            });
+            // Match exactly the routes we have in nav
+            const activeLinks = Array.from(document.querySelectorAll('.nav-link')).filter(link => 
+                link.getAttribute('onclick').includes(`Maps('${route}')`)
+            );
+            activeLinks.forEach(link => {
+                link.classList.remove('text-gray-400');
+                link.classList.add('active', 'text-white');
+            });
+        }
+
+        function renderBlogList() {
+            const html = VIEWS['blog']();
+            document.getElementById('app-content').innerHTML = html;
+            
+            // Inject blog cards
+            const grid = document.getElementById('blog-grid');
+            BLOG_POSTS.forEach((post, index) => {
+                const delay = index * 0.1;
+                grid.innerHTML += `
+                    <div class="premium-card p-6 rounded-lg cursor-pointer flex flex-col h-full fade-in" style="animation-delay: ${delay}s" onclick="navigate('post', {id: '${post.id}'})">
+                        <div class="flex-grow">
+                            <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-3">${post.tags[0]}</div>
+                            <h3 class="text-xl font-display font-semibold text-white mb-3 leading-snug hover:text-gray-300 transition-colors">${post.title}</h3>
+                            <p class="text-sm text-gray-400 line-clamp-3 mb-6">${post.summary}</p>
+                        </div>
+                        <div class="mt-auto border-t border-zinc-800 pt-4 flex justify-between items-center text-xs text-gray-500">
+                            <span>${post.date}</span>
+                            <span>${post.readTime}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            window.scrollTo(0, 0);
+            updateNavState('blog');
+        }
+
+        function navigate(route, params = {}) {
+            const contentDiv = document.getElementById('app-content');
+            
+            if (route === 'blog') {
+                renderBlogList();
+            } else if (route === 'post') {
+                contentDiv.innerHTML = VIEWS['post'](params);
+                window.scrollTo(0, 0);
+                updateNavState('blog'); // Keep blog active
+            } else if (VIEWS[route]) {
+                contentDiv.innerHTML = VIEWS[route]();
+                window.scrollTo(0, 0);
+                updateNavState(route);
+            } else {
+                contentDiv.innerHTML = VIEWS['home']();
+                updateNavState('home');
+            }
+        }
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            navigate('home');
+        });
+
+    </script>
+</body>
 </html>
