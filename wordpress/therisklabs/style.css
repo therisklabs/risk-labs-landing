@@ -1,0 +1,17 @@
+/*
+Theme Name: The Risk Labs
+Theme URI: https://therisklabs.com
+Author: The Risk Labs
+Author URI: https://therisklabs.com
+Description: Custom block theme for The Risk Labs. Brand colours (Lab Navy, Signal Orange), self-hosted Space Grotesk and Inter, an editable mega menu built on the core Navigation block, and templates for service pages, insights and legal pages.
+Version: 1.0.0
+Requires at least: 6.6
+Tested up to: 6.8
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: therisklabs
+Tags: full-site-editing, block-patterns, custom-colors, custom-menu, editor-style, wide-blocks
+*/
+
+/* Styles live in theme.json and assets/css/theme.css. */
